@@ -10,10 +10,15 @@ public class Test {
         list.add(1);
         list.add(2);
         list.add(3);
-        list.remove(2);
-        System.out.println(list.size);
-        System.out.println(list.get(1));
-        int[] a=list.toArray();
+        //list.remove(2);
+        //System.out.println(list.size);
+        //System.out.println(list.get(1));
+        //int[] a=list.toArray();
+        //list.traverse();
+        //list.set(0,4);
+        //list.traverse();
+        //list.printListReversely(list.head);
+        System.out.println(list.findBottomK(3));
         System.out.println("!!!!!!!!!");
     }
 }
