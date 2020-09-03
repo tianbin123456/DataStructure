@@ -4,7 +4,8 @@ package leetcode;
 /**
  * @Author: T
  * @Date: 2020/9/1 14:08
- * @Description: 给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
+ * @Description: leetcode 189 	旋转数组
+ * 给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
  * <p>
  * 示例 1:
  * <p>
@@ -87,9 +88,9 @@ public class T189 {
     public static void rotate2(int[] nums, int k) {
         int len = nums.length;
         k = k % len;
-        reverse(nums, 0, len-1);
+        reverse(nums, 0, len - 1);
         reverse(nums, 0, k - 1);
-        reverse(nums, k, len-1);
+        reverse(nums, k, len - 1);
     }
 
     public static void reverse(int[] nums, int start, int end) {
