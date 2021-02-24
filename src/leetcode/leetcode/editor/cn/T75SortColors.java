@@ -64,8 +64,8 @@ public class T75SortColors {
     public static void main(String[] args) {
         Solution solution = new T75SortColors().new Solution();
 
-        int[] nums = {2,0,2,1,1,0};
-        solution.quickSort(nums, 0, nums.length - 1);
+        int[] nums = {2, 0, 2, 1, 1, 0};
+        solution.sortColors(nums);
         System.out.println(nums);
     }
 
@@ -78,25 +78,31 @@ public class T75SortColors {
 
         /**
          * 一次遍历
+         *
          * @param nums
          */
-        public void aTraversal(int[] nums){
-            int p0=0;
-            int p1=0;
+        public void aTraversal(int[] nums) {
+            int p0 = 0;
+            int p1 = 0;
             int length = nums.length;
             for (int i = 0; i < length; i++) {
-                if(nums[i]==0){
-                  int  temp= nums[p0];
-                  nums[p0]=nums[i];
-                  nums[i]=temp;
-                  p0++;
-                  p1++;
-                }
-                if(nums[i]==1){
-                  int  temp= nums[p1];
-                  nums[p1]=nums[i];
-                  nums[i]=temp;
-                  p1++;
+                if (nums[i] == 0) {
+                    int temp = nums[p0];
+                    nums[p0] = nums[i];
+                    nums[i] = temp;
+                    //如果p0<p1 说明p0位置放的满足p1的值，需要将p0的值放入p1，将p1的值放入i
+                    if (p0 < p1) {
+                        temp = nums[i];
+                        nums[i] = nums[p1];
+                        nums[p1] = temp;
+                    }
+                    p0++;
+                    p1++;
+                } else if (nums[i] == 1) {
+                    int temp = nums[p1];
+                    nums[p1] = nums[i];
+                    nums[i] = temp;
+                    p1++;
                 }
             }
         }
@@ -104,6 +110,7 @@ public class T75SortColors {
 
         /**
          * 快排
+         *
          * @param nums
          * @param start
          * @param end
@@ -113,25 +120,25 @@ public class T75SortColors {
             if (length < 1) {
                 return;
             }
-            int flag = (start+end)/2;
+            int flag = (start + end) / 2;
             int j = end;
             int i = start;
             while (i < j) {
-                while (j>flag ){
-                    if(nums[j]<nums[flag]){
-                        swap(nums,j,flag);
-                        flag=j;
+                while (j > flag) {
+                    if (nums[j] < nums[flag]) {
+                        swap(nums, j, flag);
+                        flag = j;
                         break;
-                    }else {
+                    } else {
                         j--;
                     }
                 }
-                while (i<flag){
-                    if(nums[i]>nums[flag]){
-                        swap(nums,i,flag);
-                        flag=i;
+                while (i < flag) {
+                    if (nums[i] > nums[flag]) {
+                        swap(nums, i, flag);
+                        flag = i;
                         break;
-                    }else {
+                    } else {
                         i++;
                     }
                 }
