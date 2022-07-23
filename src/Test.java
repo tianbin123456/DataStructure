@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.concurrent.*;
 
 /**
  * @Auther: T
@@ -20,5 +23,9 @@ public class Test {
         //list.printListReversely(list.head);
         System.out.println(list.findBottomK(3));
         System.out.println("!!!!!!!!!");
+        HashMap hashMap=new HashMap( );
+        new HashSet<>();
+        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+        
     }
 }
