@@ -40,7 +40,7 @@ package leetcode.leetcode.editor.cn; /**
  *     }
  * }
  */
-class Solution {
+class Solution2 {
     int dep;
     public int diameterOfBinaryTree(TreeNode root) {
         dep=0;
